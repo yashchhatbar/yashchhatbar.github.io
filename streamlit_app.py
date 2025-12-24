@@ -49,23 +49,18 @@ genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 
 def generate_gemini_insights(cluster_summaries):
-    model = genai.GenerativeModel("gemini-pro")
+    model = genai.GenerativeModel("models/gemini-pro")
 
     prompt = f"""
 You are a senior business data analyst.
 
-Given the following customer segmentation results,
-provide clear and simple insights for each cluster.
-
-For every cluster, explain:
-1. Customer behavior
-2. Business or marketing strategy
+Based on the following customer clusters,
+generate business insights and marketing strategies.
 
 Cluster data:
 {cluster_summaries}
 
-Use bullet points.
-Keep the explanation concise and professional.
+Use bullet points and simple language.
 """
 
     response = model.generate_content(prompt)
