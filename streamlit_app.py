@@ -65,25 +65,25 @@ if run_button:
     # -----------------------------
     st.subheader("AI-Style Cluster Names (Placeholder)")
 
-cluster_names = {}
-
-for c in sorted(df["Cluster"].unique()):
-    c_int = int(c)  # 🔥 FIX 1: numpy.int32 → int
-    sub = df[df["Cluster"] == c_int]
-
-    income = float(sub["Annual Income (k$)"].mean())      # 🔥 FIX 2
-    spend = float(sub["Spending Score (1-100)"].mean())   # 🔥 FIX 3
-
-    if income > df["Annual Income (k$)"].mean() and spend > df["Spending Score (1-100)"].mean():
-        cluster_names[str(c_int)] = "Premium High-Spenders"
-    elif income <= df["Annual Income (k$)"].mean() and spend > df["Spending Score (1-100)"].mean():
-        cluster_names[str(c_int)] = "Low Income - High Spend"
-    elif income > df["Annual Income (k$)"].mean() and spend <= df["Spending Score (1-100)"].mean():
-        cluster_names[str(c_int)] = "High Income - Low Spend"
-    else:
-        cluster_names[str(c_int)] = "Budget / Moderate Segment"
-
-st.json(cluster_names)
+    cluster_names = {}
+    
+    for c in sorted(df["Cluster"].unique()):
+        c_int = int(c)  # 🔥 FIX 1: numpy.int32 → int
+        sub = df[df["Cluster"] == c_int]
+    
+        income = float(sub["Annual Income (k$)"].mean())      # 🔥 FIX 2
+        spend = float(sub["Spending Score (1-100)"].mean())   # 🔥 FIX 3
+    
+        if income > df["Annual Income (k$)"].mean() and spend > df["Spending Score (1-100)"].mean():
+            cluster_names[str(c_int)] = "Premium High-Spenders"
+        elif income <= df["Annual Income (k$)"].mean() and spend > df["Spending Score (1-100)"].mean():
+            cluster_names[str(c_int)] = "Low Income - High Spend"
+        elif income > df["Annual Income (k$)"].mean() and spend <= df["Spending Score (1-100)"].mean():
+            cluster_names[str(c_int)] = "High Income - Low Spend"
+        else:
+            cluster_names[str(c_int)] = "Budget / Moderate Segment"
+    
+    st.json(cluster_names)
 
     # -----------------------------
     # CLUSTER SUMMARIES
