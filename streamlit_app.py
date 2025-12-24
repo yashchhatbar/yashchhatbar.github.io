@@ -49,11 +49,7 @@ genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 
 def generate_gemini_insights(cluster_summaries):
-    """
-    Sends cluster summaries to Gemini AI and returns
-    business-friendly insights.
-    """
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-pro")
 
     prompt = f"""
 You are a senior business data analyst.
@@ -74,7 +70,6 @@ Keep the explanation concise and professional.
 
     response = model.generate_content(prompt)
     return response.text
-
 
 # -----------------------------
 # RUN CLUSTERING
