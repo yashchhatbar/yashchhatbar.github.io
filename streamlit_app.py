@@ -63,27 +63,45 @@ if run_button:
     # -----------------------------
     # VISUALIZATION
     # -----------------------------
-    st.subheader("AI-Style Cluster Names (Placeholder)")
+    st.subheader("AI-Style Cluster Names (Automatic)")
 
+    # Overall averages
+    overall_income = df["Annual Income (k$)"].mean()
+    overall_spending = df["Spending Score (1-100)"].mean()
+    
+    # Tolerance to decide Medium
+    income_tol = df["Annual Income (k$)"].std() * 0.25
+    spending_tol = df["Spending Score (1-100)"].std() * 0.25
+    
     cluster_names = {}
     
     for c in sorted(df["Cluster"].unique()):
-        c_int = int(c)
-        sub = df[df["Cluster"] == c_int]
+        c = int(c)
+        sub = df[df["Cluster"] == c]
     
-        income = float(sub["Annual Income (k$)"].mean())
-        spend = float(sub["Spending Score (1-100)"].mean())
+        avg_income = float(sub["Annual Income (k$)"].mean())
+        avg_spending = float(sub["Spending Score (1-100)"].mean())
     
-        if income > df["Annual Income (k$)"].mean() and spend > df["Spending Score (1-100)"].mean():
-            cluster_names[str(c_int)] = "High Income - High Spending"
-        elif income <= df["Annual Income (k$)"].mean() and spend > df["Spending Score (1-100)"].mean():
-            cluster_names[str(c_int)] = "Low Income - Low Spending"
-        elif income > df["Annual Income (k$)"].mean() and spend <= df["Spending Score (1-100)"].mean():
-            cluster_names[str(c_int)] = "Low Income - High Spending"
+        # Income level
+        if avg_income > overall_income + income_tol:
+            income_label = "High Income"
+        elif avg_income < overall_income - income_tol:
+            income_label = "Low Income"
         else:
-            cluster_names[str(c_int)] = "High Income - Low Spending"
+            income_label = "Medium Income"
+    
+        # Spending level
+        if avg_spending > overall_spending + spending_tol:
+            spending_label = "High Spending"
+        elif avg_spending < overall_spending - spending_tol:
+            spending_label = "Low Spending"
+        else:
+            spending_label = "Medium Spending"
+    
+        cluster_names[str(c)] = f"{income_label} - {spending_label}"
     
     st.json(cluster_names)
+
 
     # -----------------------------
     # CLUSTER SUMMARIES
