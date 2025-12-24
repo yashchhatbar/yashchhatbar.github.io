@@ -63,21 +63,22 @@ if run_button:
     # -----------------------------
     # VISUALIZATION
     # -----------------------------
-    st.subheader("Customer Clusters")
-
-    fig, ax = plt.subplots(figsize=(6, 5))
-    scatter = ax.scatter(
-        df["Annual Income (k$)"],
-        df["Spending Score (1-100)"],
-        c=df["Cluster"]
-    )
-    ax.set_xlabel("Annual Income (k$)")
-    ax.set_ylabel("Spending Score (1-100)")
-    st.pyplot(fig)
-
-    st.subheader("Cluster Sizes")
-    st.bar_chart(df["Cluster"].value_counts().sort_index())
-
+    st.subheader('AI-Style Cluster Names (placeholder)') # Simple heuristic naming based on cluster means 
+    names = {} 
+    for c in sorted(df['Cluster'].unique()): 
+        sub = df[df['Cluster']==c] 
+        income = sub['Annual Income (k$)'].mean() 
+        spend = sub['Spending Score (1-100)'].mean() 
+        if income > df['Annual Income (k$)'].mean() and spend > df['Spending Score (1-100)'].mean(): 
+            names[c] = 'Premium High-Spenders' 
+        elif income <= df['Annual Income (k$)'].mean() and spend > df['Spending Score (1-100)'].mean(): 
+            names[c] = 'Low Income - High Spend' 
+        elif income > df['Annual Income (k$)'].mean() and spend <= df['Spending Score (1-100)'].mean(): 
+            names[c] = 'High Income - Low Spend' 
+        else: 
+            names[c] = 'Budget/Moderate Segment' 
+            
+    st.write(names)
 
     # -----------------------------
     # CLUSTER SUMMARIES
