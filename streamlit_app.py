@@ -117,9 +117,11 @@ if run_button:
     st.subheader("Cluster Statistics")
     st.json(cluster_summaries)
 
-
 # -----------------------------
 # FOOTER
 # -----------------------------
 st.markdown("---")
-st.caption("This project uses K-Means clustering and Google Gemini AI to convert data insights into natural language explanations.")
+st.caption(
+    "Developed by Yash Chhatbar | "
+    "AI-Driven Customer Segmentation using K-Means for Marketing Insights"
+)
