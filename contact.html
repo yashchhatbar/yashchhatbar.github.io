@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get in Touch | Yash.AI</title>
+    <meta name="description"
+        content="Contact Yash, an AI & Machine Learning Engineer. Let's collaborate or discuss opportunities.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+    <link rel="stylesheet" href="css/assistant.css">
+    <!-- Need this for the AI Robot Header icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+    <style>
+        .navbar-spacer {
+            background: white;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navigation -->
+    <div class="navbar-wrapper">
+        <nav class="navbar" id="navbar" aria-label="Primary">
+            <a href="index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 18V30M16 18L4 6M16 18L28 6" stroke="currentColor" stroke-width="4"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-name">YASH CHHATBAR</span>
+                    <span class="logo-sub">AI/ML ENGINEER</span>
+                </div>
+            </a>
+            <div class="nav-links" id="primary-navigation">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="index.html#experience">Experience</a>
+                <a href="index.html#education">Education</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+            <div class="nav-right">
+                <a href="resume.pdf" class="btn-cta" download="Yash_Chhatbar_Resume.pdf">Download Resume</a>
+                <button class="hamburger" type="button" aria-label="Open menu" aria-controls="primary-navigation"
+                    aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="navbar-spacer" aria-hidden="true"></div>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact-page-container">
+                <!-- Left Side: Contact Info -->
+                <div class="contact-info-panel">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p class="contact-lead">
+                        I am currently open to new opportunities in AI & Machine Learning. Whether you have a question,
+                        a project idea, or just want to say hi, I’ll appreciate the connection.
+                    </p>
+
+                    <div class="info-item">
+                        <span class="info-label">Email</span>
+                        <div class="info-value">
+                            <a href="mailto:yashchhatbar11@gmail.com">yashchhatbar11@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Social Highlights</span>
+                        <span class="info-value">
+                            <a href="https://github.com/yashchhatbar" target="_blank" rel="noopener noreferrer"
+                                style="margin-right: 15px;"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://www.linkedin.com/in/yashchhatbar/" target="_blank"
+                                rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        </span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Location</span>
+                        <span class="info-value">Ahmedabad, Gujarat, India</span>
+                    </div>
+                </div>
+
+                <!-- Right Side: Contact Form -->
+                <div class="contact-form-panel">
+                    <form id="contactFormMain">
+
+                        <input type="hidden" name="to_name" value="Yash Chhatbar">
+                        <input type="hidden" name="origin" id="origin_field">
+
+                        <label class="form-group">
+                            <span class="form-label">Full Name</span>
+                            <input type="text" id="from_name" name="from_name" class="form-input"
+                                placeholder="Elon Musk" required autocomplete="name">
+                        </label>
+
+                        <label class="form-group">
+                            <span class="form-label">Email Address</span>
+                            <input type="email" id="from_email" name="from_email" class="form-input"
+                                placeholder="elon@tesla.com" required autocomplete="email">
+                        </label>
+
+                        <label class="form-group">
+                            <span class="form-label">Message</span>
+                            <textarea id="message" name="message" class="form-textarea"
+                                placeholder="I'd love to chat about a potential AI integration..." required></textarea>
+                        </label>
+
+                        <p class="form-error" id="errorMessage" aria-live="polite">We encountered an error sending
+                            your message. Please email me directly.</p>
+
+                        <button type="submit" class="btn-primary btn-block" id="submitBtn">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+
+                    <div class="form-success" id="successMessage" style="display: none;" aria-live="polite">
+                        <i class="fas fa-check-circle form-success-icon"></i>
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for reaching out. I'll get back to you within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bcf-footer">
+        <div class="bcf-container">
+            <div class="bcf-left">
+                <div class="text-stage">
+                    <span id="layerIn">Hello</span>
+                </div>
+                <h1 class="bcf-title">
+                    YASH CHHATBAR<br>
+                    AI & ML ENGINEER
+                </h1>
+                <div class="bcf-copy">
+                    © 2026 Yash Chhatbar. All rights reserved.
+                </div>
+            </div>
+            <div class="bcf-right">
+                <div class="bcf-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#hero">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#skills">Skills</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#experience">Experience</a></li>
+                        <li><a href="index.html#education">Education</a></li>
+                        <li><a href="index.html#references">References</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="bcf-col">
+                    <h4>Social Links</h4>
+                    <ul>
+                        <li><a href="mailto:yashchhatbar11@gmail.com">E-Mail Address</a></li>
+                        <li><a href="https://github.com/yashchhatbar">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/yashchhatbar/">LinkedIn</a></li>
+                        <li><a href="https://www.instagram.com/yashchhatbar/">Instagram</a></li>
+                        <li><a href="https://www.twitter.com/yashchhatbar/">Twitter</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="resume.pdf" download="Yash_Chhatbar_Resume.pdf">Download CV</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/animations.js" defer></script>
+    <script src="js/interactions.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/assistant.js"></script>
+</body>
+
+</html>
