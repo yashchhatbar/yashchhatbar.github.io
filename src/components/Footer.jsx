@@ -53,27 +53,27 @@ const Footer = () => {
             <h4>Quick Links</h4>
 
             <ul>
-              <li>
+              <li className="info-value">
                 <a href="#hero" onClick={(e) => handleFooterLinkClick(e, '#hero')}>Home</a>
               </li>
 
-              <li>
+              <li className="info-value">
                 <a href="#about" onClick={(e) => handleFooterLinkClick(e, '#about')}>About</a>
               </li>
 
-              <li>
+              <li className="info-value">
                 <a href="#skills" onClick={(e) => handleFooterLinkClick(e, '#skills')}>Skills</a>
               </li>
 
-              <li>
+              <li className="info-value">
                 <Link to="/projects">All Projects</Link>
               </li>
 
-              <li>
+              <li className="info-value">
                 <a href="#experience" onClick={(e) => handleFooterLinkClick(e, '#experience')}>Experience</a>
               </li>
 
-              <li>
+              <li className="info-value">
                 <a href="#education" onClick={(e) => handleFooterLinkClick(e, '#education')}>Education</a>
               </li>
             </ul>
@@ -85,13 +85,13 @@ const Footer = () => {
 
             <ul>
 
-              <li>
+              <li className="info-value">
                 <a href="mailto:yashchhatbar11@gmail.com">
                   Email Me
                 </a>
               </li>
 
-              <li>
+              <li className="info-value">
                 <a
                   href="https://github.com/yashchhatbar"
                   target="_blank"
@@ -101,7 +101,7 @@ const Footer = () => {
                 </a>
               </li>
 
-              <li>
+              <li className="info-value">
                 <a
                   href="https://www.linkedin.com/in/yashchhatbar/"
                   target="_blank"
@@ -111,11 +111,11 @@ const Footer = () => {
                 </a>
               </li>
 
-              <li>
+              <li className="info-value">
                 <Link to="/contact">Contact</Link>
               </li>
 
-              <li>
+              <li className="info-value">
                 <a href="/resume.pdf" download="Yash_Chhatbar_Resume.pdf">
                   Download Resume
                 </a>
