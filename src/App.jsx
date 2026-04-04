@@ -22,20 +22,21 @@ function App() {
   const location = useLocation();
 
   // Detect if current page is a project detail page
-  const isProjectDetail = location.pathname.startsWith("/projects/") && location.pathname !== "/projects";
+  const isProjectDetail =
+    location.pathname.startsWith("/projects/") &&
+    location.pathname !== "/projects";
 
   useEffect(() => {
 
-    // Initialize main app scripts
+    // ✅ Initialize main scripts
     initApp();
 
-    // Initialize cursor + animations
+    // ✅ Initialize cursor + animations
     const cleanupCursor = initCursor();
     const cleanupAnims = initAnimations();
 
-    // Handle section scrolling from navbar/footer
+    // ✅ Scroll behavior (FIXED)
     if (location.hash) {
-
       const element = document.querySelector(location.hash);
 
       if (element) {
@@ -46,12 +47,9 @@ function App() {
           });
         }, 100);
       }
-
     } else {
-
-      // Scroll to top for normal page navigation
-      window.scrollTo(0, 0);
-
+      // Always scroll to top on route change
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     return () => {
@@ -59,21 +57,19 @@ function App() {
       if (cleanupAnims) cleanupAnims();
     };
 
-  }, [location]);
+  }, [location.pathname, location.hash]); // ✅ more precise dependency
 
   return (
-
     <div className="app-container">
 
       {/* Custom Cursor */}
       <div className="cursor-dot"></div>
       <div className="cursor-outline"></div>
 
-      {/* Hide Navbar on Project Detail pages */}
+      {/* Navbar (hidden on project detail page) */}
       {!isProjectDetail && <Navbar />}
 
       <main>
-
         <Routes>
 
           <Route path="/" element={<Home />} />
@@ -85,16 +81,13 @@ function App() {
           <Route path="/contact" element={<Contact />} />
 
         </Routes>
-
       </main>
 
-      {/* Hide Footer on Project Detail pages */}
+      {/* Footer (hidden on project detail page) */}
       {!isProjectDetail && <Footer />}
 
     </div>
-
   );
-
 }
 
 export default App;
