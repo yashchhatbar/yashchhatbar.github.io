@@ -49,7 +49,12 @@ function App() {
       }
     } else {
       // Always scroll to top on route change
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      setTimeout(() => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}, 50);
     }
 
     return () => {
