@@ -39,14 +39,15 @@ const Contact = () => {
                 <span className="info-value">
                   <a href="https://github.com/yashchhatbar" target="_blank" rel="noopener noreferrer"
                     style={{ marginRight: '15px' }}><i className="fab fa-github"></i> GitHub</a>
-                  <a href="https://www.linkedin.com/in/yashchhatbar/" target="_blank"
+                  <a href="https://www.linkedin.com/in/yashchhatbar" target="_blank"
                     rel="noopener noreferrer"><i className="fab fa-linkedin"></i> LinkedIn</a>
                 </span>
               </div>
 
               <div className="info-item">
                 <span className="info-label">Location</span>
-                <span className="info-value">Ahmedabad, Gujarat, India</span>
+                <span className="info-value"><a href="https://share.google/forIQR9ApT5REuLOs" target="_blank"
+                    rel="noopener noreferrer"><i className="fab fa-location"></i>Ahmedabad, Gujarat, India</a></span>
               </div>
             </div>
 
