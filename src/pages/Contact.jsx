@@ -47,7 +47,7 @@ const Contact = () => {
               <div className="info-item">
                 <span className="info-label">Location</span>
                 <span className="info-value"><a href="https://share.google/forIQR9ApT5REuLOs" target="_blank"
-                    rel="noopener noreferrer"><i class="fa fa-map-marker" aria-hidden="true"></i>Ahmedabad, Gujarat, India</a></span>
+                    rel="noopener noreferrer"><i class="fa fa-location-arrow" aria-hidden="true"></i>Ahmedabad, Gujarat, India</a></span>
               </div>
             </div>
 
