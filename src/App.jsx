@@ -36,26 +36,28 @@ function App() {
     const cleanupAnims = initAnimations();
 
     // ✅ Scroll behavior (FIXED)
-    if (location.hash) {
-      const element = document.querySelector(location.hash);
+    // ✅ Scroll behavior (FINAL FIX)
+if (location.hash) {
+  const element = document.querySelector(location.hash);
 
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }, 100);
-      }
-    } else {
-      // Always scroll to top on route change
-      setTimeout(() => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-}, 50);
-    }
+  if (element) {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+} else {
+  // Instant jump first (ensures correct position)
+  window.scrollTo(0, 0);
+
+  // Then smooth effect (optional polish)
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, 10);
+}
 
     return () => {
       if (cleanupCursor) cleanupCursor();
