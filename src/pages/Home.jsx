@@ -235,7 +235,7 @@ def solve_problem(data):
           <div className="timeline">
             <div className="timeline-item">
               <div className="timeline-content">
-                <span className="date">Pursuing</span>
+                <span className="date">Completed</span>
                 <h3>Bachelor’s Degree in Information Technology</h3>
                 <span className="institution">Gujarat Technological University</span>
                 <p>Core subjects: ML, Data Structures, Databases. Strong foundation in algorithms and data.
